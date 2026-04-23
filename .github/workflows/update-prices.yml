@@ -1,0 +1,37 @@
+name: Update Prices
+on:
+  schedule:
+    - cron: '0 0,3,6,9,12 * * *' # Every 3 hours from 9 AM to 9 PM (JST)
+  workflow_dispatch: # Allow manual triggers
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to commit back to the repo
+
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install Dependencies
+        run: npm ci || npm install
+
+      - name: Run Fetch Script
+        run: npm start
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/prices.json
+          git commit -m "Automated price grab [skip ci]" || echo "No changes to commit"
+          git push

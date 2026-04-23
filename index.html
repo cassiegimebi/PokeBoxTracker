@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポケtracker | Sealed Box Market Dashboard</title>
+    <meta name="description" content="Real-time Pokémon sealed booster box price tracker powered by SNKRDUNK market data.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2>ポケtracker</h2>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="card-search" data-i18n="searchbox" placeholder="Search box name..." autocomplete="off">
+            </div>
+
+            <h3 data-i18n="tracked">Tracked Boxes</h3>
+            <ul id="card-list" class="card-list"><!-- Populated dynamically --></ul>
+
+            <div class="sidebar-footer">
+                <p class="status">● <span data-i18n="live">Market Data Live</span></p>
+                <p data-i18n="source">Source: SNKRDUNK</p>
+            </div>
+        </div>
+
+        <!-- Main View -->
+        <div class="main-view">
+            <header class="view-header" style="display:flex; justify-content:space-between; align-items:flex-start;">
+                <div class="header-info">
+                    <h1 id="selected-card-name" data-i18n="select">Select a Box</h1>
+                    <p id="selected-card-meta" class="subtitle" data-i18n="subtitle">Sealed box market history &amp; trends</p>
+                </div>
+                <button id="lang-toggle" class="lang-btn">JP / EN</button>
+            </header>
+
+            <div class="content-row">
+                <!-- Box Image -->
+                <div class="card-preview-container">
+                    <img id="card-image" src="" alt="Box Preview" class="card-image-preview hidden">
+                    <span id="card-no-image" class="card-no-image hidden">📦</span>
+                </div>
+
+                <!-- Stats + Chart -->
+                <div class="data-container">
+
+                    <!-- Stats row: Price | Sales Today | Sales 7d | Change -->
+                    <div class="stats-row">
+                        <div class="stat-card">
+                            <h4 data-i18n="latest_price">Latest Price (JPY)</h4>
+                            <div class="value" id="latest-price-jpy">¥—</div>
+                            <div class="trend-label positive" data-i18n="live">Live</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4 data-i18n="sales_today">Sales Today</h4>
+                            <div class="value small" id="sales-today">—</div>
+                            <div class="sub-label" data-i18n="box_sales">Sealed box transactions</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4 data-i18n="sales_week">Sales This Week</h4>
+                            <div class="value small" id="sales-week">—</div>
+                            <div class="sales-bar-wrap">
+                                <div class="sales-bar-bg">
+                                    <div class="sales-bar-fill" id="sales-bar" style="width:0%"></div>
+                                </div>
+                                <span class="sub-label" id="sales-bar-label">/ 7 days</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <h4 data-i18n="price_change">Price Change</h4>
+                            <div class="value small" id="price-change">—</div>
+                            <div class="sub-label" id="price-change-label" data-i18n="vs_prev">vs. previous entry</div>
+                        </div>
+                    </div>
+
+                    <!-- Price History Chart -->
+                    <div class="chart-section">
+                        <div class="chart-header">
+                            <span class="chart-title" id="chart-source-label">SNKRDUNK Sealed Box Price History</span>
+                            <div class="chart-controls">
+                                <button class="time-btn" data-range="weekly" data-i18n="weekly">7 Days</button>
+                                <button class="time-btn" data-range="monthly" data-i18n="monthly">30 Days</button>
+                                <button class="time-btn active" data-range="all" data-i18n="all_time">All Time</button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="priceChart"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{
+  "sv2a_box": {
+    "metadata": {
+      "name_en": "Pokémon 151 Booster Box",
+      "name_ja": "ポケモンカード151 BOX",
+      "imageUrl": null
+    },
+    "history": [
+      {
+        "date": "2026-04-23",
+        "snkrdunk_jpy": 71000,
+        "snkrdunk_sales_24h": 18,
+        "snkrdunk_sales_7d": 20
+      }
+    ]
+  },
+  "sv4a_box": {
+    "metadata": {
+      "name_en": "Shiny Treasure ex Booster Box",
+      "name_ja": "シャイニートレジャーex BOX",
+      "imageUrl": null
+    },
+    "history": [
+      {
+        "date": "2026-04-23",
+        "snkrdunk_jpy": null,
+        "snkrdunk_sales_24h": 0,
+        "snkrdunk_sales_7d": 0
+      }
+    ]
+  },
+  "sv5a_box": {
+    "metadata": {
+      "name_en": "Crimson Haze Booster Box",
+      "name_ja": "クリムゾンヘイズ BOX",
+      "imageUrl": null
+    },
+    "history": [
+      {
+        "date": "2026-04-23",
+        "snkrdunk_jpy": null,
+        "snkrdunk_sales_24h": 0,
+        "snkrdunk_sales_7d": 0
+      }
+    ]
+  }
+}

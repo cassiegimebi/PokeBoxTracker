@@ -1,0 +1,14 @@
+{
+  "name": "pokemon-card-tracker",
+  "version": "1.0.0",
+  "description": "Automated Pokémon Card Market Tracker",
+  "main": "src/fetchData.js",
+  "scripts": {
+    "start": "node src/fetchData.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "cheerio": "^1.0.0-rc.12",
+    "date-fns": "^3.6.0"
+  }
+}
