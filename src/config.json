@@ -4,6 +4,7 @@
     "name_en": "Pokémon 151 Booster Box",
     "name_ja": "ポケモンカード151 BOX",
     "snkrdunk_product_id": 118914,
+    "snkrdunk_size_id": 1,
     "imageUrl": ""
   },
   {
@@ -11,6 +12,7 @@
     "name_en": "Shiny Treasure ex Booster Box",
     "name_ja": "シャイニートレジャーex BOX",
     "snkrdunk_product_id": 161000,
+    "snkrdunk_size_id": 1,
     "imageUrl": ""
   },
   {
@@ -18,6 +20,7 @@
     "name_en": "Crimson Haze Booster Box",
     "name_ja": "クリムゾンヘイズ BOX",
     "snkrdunk_product_id": 210000,
+    "snkrdunk_size_id": 1,
     "imageUrl": ""
   }
 ]
