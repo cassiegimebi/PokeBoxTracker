@@ -116,21 +116,23 @@ async function main() {
       imageUrl: boxConfig.imageUrl || pricesDb[boxConfig.id].metadata.imageUrl || null,
     };
 
+    // Fetch current price
+    console.log(`\n--- Fetching SNKRDUNK (product: ${boxConfig.snkrdunk_product_id}, size_id fallback: ${sizeId}) ---`);
+    const { price, sales24h, sales7d, availableSizes, detectedSizeId } = await scrapeSnkrdunkPrice(
+      boxConfig.snkrdunk_product_id,
+      sizeId
+    );
+
+    const activeSizeId = detectedSizeId || sizeId;
+
     // Backfill historical data on first run
     if (pricesDb[boxConfig.id].history.length === 0 && boxConfig.snkrdunk_product_id) {
-      console.log(' -> First run: backfilling historical chart data...');
-      const historicalPoints = await fetchSnkrdunkHistory(boxConfig.snkrdunk_product_id, sizeId);
+      console.log(` -> First run: backfilling historical chart data using detected size_id=${activeSizeId}...`);
+      const historicalPoints = await fetchSnkrdunkHistory(boxConfig.snkrdunk_product_id, activeSizeId);
       pricesDb[boxConfig.id].history = historicalPoints;
       console.log(` -> Loaded ${historicalPoints.length} historical data points`);
       await new Promise(r => setTimeout(r, 1000));
     }
-
-    // Fetch current price
-    console.log(`\n--- Fetching SNKRDUNK (product: ${boxConfig.snkrdunk_product_id}, size_id: ${sizeId}) ---`);
-    const { price, sales24h, sales7d, availableSizes } = await scrapeSnkrdunkPrice(
-      boxConfig.snkrdunk_product_id,
-      sizeId
-    );
 
     // Check for price spike
     checkPriceAlert(boxConfig.name_en, price, pricesDb[boxConfig.id].history);
