@@ -41,6 +41,7 @@ async function scrapeSnkrdunkPrice(productId, sizeId = 1) {
   let sales24h = 0;
   let sales7d = 0;
   let availableSizes = [];
+  let detectedSizeId = null;
 
   try {
     // Fetch recent sales history across all sizes so we can see what's available
@@ -96,13 +97,12 @@ async function scrapeSnkrdunkPrice(productId, sizeId = 1) {
 
     console.log(`[SNKRDUNK] ID ${productId} (size_id=${sizeId}): ¥${price?.toLocaleString() ?? '-'} | 24h: ${sales24h} | 7d: ${sales7d}`);
 
+    if (salesPool.length > 0) {
+      detectedSizeId = salesPool[0].size_id;
+    }
+
   } catch (err) {
     console.warn(`[SNKRDUNK] sales-history failed for ID ${productId}: ${err.message}`);
-  }
-
-  let detectedSizeId = null;
-  if (salesPool.length > 0) {
-    detectedSizeId = salesPool[0].size_id;
   }
 
   // Fallback: chart API if no price from sales-history
