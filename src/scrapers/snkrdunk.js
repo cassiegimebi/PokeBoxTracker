@@ -100,13 +100,19 @@ async function scrapeSnkrdunkPrice(productId, sizeId = 1) {
     console.warn(`[SNKRDUNK] sales-history failed for ID ${productId}: ${err.message}`);
   }
 
+  let detectedSizeId = null;
+  if (salesPool.length > 0) {
+    detectedSizeId = salesPool[0].size_id;
+  }
+
   // Fallback: chart API if no price from sales-history
   if (price === null) {
+    const fallbackSizeId = detectedSizeId || sizeId;
     try {
       const chartRes = await axios.get(
         `https://snkrdunk.com/v1/apparels/${productId}/sales-chart/used`,
         {
-          params: { range: 'all', salesChartOptionId: sizeId },
+          params: { range: 'all', salesChartOptionId: fallbackSizeId },
           headers: commonHeaders,
           timeout: 15000,
         }
@@ -121,7 +127,7 @@ async function scrapeSnkrdunkPrice(productId, sizeId = 1) {
     }
   }
 
-  return { price, sales24h, sales7d, availableSizes };
+  return { price, sales24h, sales7d, availableSizes, detectedSizeId };
 }
 
 /**
