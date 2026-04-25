@@ -43,12 +43,11 @@ async function scrapeSnkrdunkPrice(productId, sizeId = 1) {
   let availableSizes = [];
 
   try {
-    // Fetch recent sales history — pass size_id to target the specific quantity tier
+    // Fetch recent sales history across all sizes so we can see what's available
     const histRes = await axios.get(
       `https://snkrdunk.com/v1/apparels/${productId}/sales-history`,
       {
         params: {
-          size_id: sizeId,  // e.g. 1 = "1BOX"
           page: 1,
           per_page: 50,
         },
@@ -65,10 +64,16 @@ async function scrapeSnkrdunkPrice(productId, sizeId = 1) {
       console.log(`[SNKRDUNK] ID ${productId}: sizes in response → ${availableSizes.join(', ')}`);
     }
 
-    // Filter for the target size_id as a safety net (in case the API ignores the param)
-    const targeted = history.filter(item =>
-      item.size_id === sizeId || item.size_id === String(sizeId)
-    );
+    // Filter specifically for single box sales (1BOX).
+    // This ensures we skip multi-box sales (e.g. "3BOX", "2BOX").
+    const targeted = history.filter(item => {
+      if (item.size) {
+        const sizeStr = String(item.size).replace(/\s+/g, '').toUpperCase();
+        return sizeStr === '1BOX' || sizeStr.startsWith('1BOX(');
+      }
+      // Fallback if 'size' string is missing
+      return item.size_id === sizeId || item.size_id === String(sizeId);
+    });
     // Fall back to full history if the filter yields nothing (API may not support size_id param for all products)
     const salesPool = targeted.length > 0 ? targeted : history;
 
