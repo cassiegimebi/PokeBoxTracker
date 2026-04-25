@@ -43,19 +43,5 @@
         "snkrdunk_sales_7d": 0
       }
     ]
-  },
-  "undefined": {
-    "metadata": {
-      "name_ja": "",
-      "imageUrl": null
-    },
-    "history": [
-      {
-        "date": "2026-04-24",
-        "snkrdunk_jpy": null,
-        "snkrdunk_sales_24h": 0,
-        "snkrdunk_sales_7d": 0
-      }
-    ]
   }
 }
