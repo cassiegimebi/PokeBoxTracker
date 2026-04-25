@@ -5,7 +5,14 @@
       "name_ja": "ポケモンカード151 BOX",
       "imageUrl": "https://cdn.snkrdunk.com/upload_bg_removed/20251022073446-0.webp?size=l"
     },
-    "history": []
+    "history": [
+      {
+        "date": "2026-04-25",
+        "snkrdunk_jpy": 71290,
+        "snkrdunk_sales_24h": 15,
+        "snkrdunk_sales_7d": 20
+      }
+    ]
   },
   "sv4a_box": {
     "metadata": {
@@ -13,6 +20,13 @@
       "name_ja": "シャイニートレジャーex BOX",
       "imageUrl": "https://cdn.snkrdunk.com/upload_bg_removed/20251022074908-0.webp?size=l"
     },
-    "history": []
+    "history": [
+      {
+        "date": "2026-04-25",
+        "snkrdunk_jpy": 45200,
+        "snkrdunk_sales_24h": 18,
+        "snkrdunk_sales_7d": 20
+      }
+    ]
   }
 }
