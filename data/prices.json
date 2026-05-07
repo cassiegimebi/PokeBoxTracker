@@ -77,6 +77,12 @@
         "snkrdunk_jpy": 70999,
         "snkrdunk_sales_24h": 7,
         "snkrdunk_sales_7d": 20
+      },
+      {
+        "date": "2026-05-07",
+        "snkrdunk_jpy": 70000,
+        "snkrdunk_sales_24h": 3,
+        "snkrdunk_sales_7d": 20
       }
     ]
   },
@@ -156,6 +162,12 @@
       {
         "date": "2026-05-06",
         "snkrdunk_jpy": 21000,
+        "snkrdunk_sales_24h": 20,
+        "snkrdunk_sales_7d": 20
+      },
+      {
+        "date": "2026-05-07",
+        "snkrdunk_jpy": 40000,
         "snkrdunk_sales_24h": 20,
         "snkrdunk_sales_7d": 20
       }
