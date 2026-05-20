@@ -1,0 +1,29 @@
+{
+  "date": "2026-05-20",
+  "fetched_at": "2026-05-20T04:06:53.430Z",
+  "box": {
+    "id": "sv4a_box",
+    "name_en": "Shiny Treasure ex Booster Box",
+    "name_ja": "シャイニートレジャーex BOX",
+    "snkrdunk_product_id": 151755,
+    "snkrdunk_size_id": 1
+  },
+  "price": {
+    "current_jpy": 62800,
+    "previous_jpy": 58800,
+    "change_jpy": 4000,
+    "change_pct": 6.8,
+    "direction": "up"
+  },
+  "sales": {
+    "last_24h": 20,
+    "last_7d": 20
+  },
+  "debug": {
+    "available_sizes_in_response": [
+      "3個",
+      "5個",
+      "1個"
+    ]
+  }
+}
