@@ -1,6 +1,6 @@
 {
   "date": "2026-07-12",
-  "fetched_at": "2026-07-12T08:25:15.231Z",
+  "fetched_at": "2026-07-12T10:37:58.157Z",
   "box": {
     "id": "sv2a_box",
     "name_en": "Pokémon 151 Booster Box",
@@ -16,7 +16,7 @@
     "direction": "down"
   },
   "sales": {
-    "last_24h": 20,
+    "last_24h": 19,
     "last_7d": 20
   },
   "debug": {
