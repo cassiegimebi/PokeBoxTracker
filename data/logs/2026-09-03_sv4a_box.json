@@ -1,6 +1,6 @@
 {
   "date": "2026-09-03",
-  "fetched_at": "2026-09-03T10:58:27.234Z",
+  "fetched_at": "2026-09-03T16:11:08.260Z",
   "box": {
     "id": "sv4a_box",
     "name_en": "Shiny Treasure ex Booster Box",
@@ -16,7 +16,7 @@
     "direction": "flat"
   },
   "sales": {
-    "last_24h": 6,
+    "last_24h": 0,
     "last_7d": 20
   },
   "debug": {
