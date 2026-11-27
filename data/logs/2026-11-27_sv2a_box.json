@@ -1,6 +1,6 @@
 {
   "date": "2026-11-27",
-  "fetched_at": "2026-11-27T07:44:25.681Z",
+  "fetched_at": "2026-11-27T18:46:09.805Z",
   "box": {
     "id": "sv2a_box",
     "name_en": "Pokémon 151 Booster Box",
@@ -9,14 +9,14 @@
     "snkrdunk_size_id": 1
   },
   "price": {
-    "current_jpy": 47000,
+    "current_jpy": 45900,
     "previous_jpy": 47000,
-    "change_jpy": 0,
-    "change_pct": 0,
-    "direction": "flat"
+    "change_jpy": -1100,
+    "change_pct": -2.34,
+    "direction": "down"
   },
   "sales": {
-    "last_24h": 10,
+    "last_24h": 9,
     "last_7d": 20
   },
   "debug": {
